@@ -11738,7 +11738,8 @@
           "unavailableOption": "{{user}} @ {{host}} (unavailable)",
           "capabilityBlocked": "Binding is unavailable until this runtime’s GitHub CLI supports `gh auth token --user` (gh ≥ 2.40).",
           "capabilityUnknownHint": "Could not determine GitHub CLI account-binding support on this runtime. Clear the binding or retry.",
-          "notEnforced": "Saved, but not enforced by this runtime (mixed-version host)."
+          "notEnforced": "Saved, but not enforced by this runtime (mixed-version host).",
+          "refreshAccounts": "Refresh GitHub accounts"
         },
         "shareSkills": {
           "title": "Share Skills",
