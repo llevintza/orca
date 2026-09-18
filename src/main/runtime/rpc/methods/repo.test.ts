@@ -391,9 +391,6 @@ describe('repo RPC methods', () => {
 
   it('persists normalized ghAccount bindings and clear sentinels', async () => {
     const runtime = new OrcaRuntimeService(null)
-    vi.spyOn(runtime, 'getClientSettings').mockReturnValue({
-      worktreeVisibilityDefaults: { external: 'hide' }
-    })
     vi.spyOn(runtime, 'updateRepo').mockResolvedValue({
       id: 'repo-1',
       path: '/srv/repo',
@@ -408,7 +405,8 @@ describe('repo RPC methods', () => {
       makeRequest('repo.update', {
         repo: 'repo-1',
         updates: { ghAccount: { host: ' GitHub.COM ', user: ' Alice ' } }
-      })
+      }),
+      { clientCapabilities: [WORKTREE_VISIBILITY_DEFAULTS_RUNTIME_CAPABILITY] }
     )
 
     expect(runtime.updateRepo).toHaveBeenCalledWith('repo-1', {
